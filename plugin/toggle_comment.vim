@@ -1,6 +1,6 @@
 
 " Le mapping des touches
-map <silent> q mZ:call ToggleComment_toggle()<CR>`Z
+"map <silent> q mZ:call ToggleComment_toggle()<CR>`Z
 map <silent> - mZ:call ToggleComment_comment()<CR>`Z
 map <silent> _ mZ:call ToggleComment_uncomment()<CR>`Z
 
