@@ -139,7 +139,7 @@ function! ToggleComment_toggle()
   let cs=out[1]
   let sep=out[2]
 
-  if get(s:comment_in_place,b:current_syntax)
+  if exists("b:current_symbol") && get(s:comment_in_place,b:current_syntax)
     execute 's'.sep.'^\s'.sep.'\0'.cs.sep.'e'
     execute 's'.sep.'^\S'.sep.cs.' '.sep.'e'
     execute 's'.sep.'^.'.sep.sep.'e'
@@ -164,7 +164,7 @@ function! ToggleComment_comment()
   let sep=out[2]
 
   let dot_ncs=substitute(cs,".","\.","g")
-  if get(s:comment_in_place,b:current_syntax)
+  if exists("b:current_symbol") && get(s:comment_in_place,b:current_syntax)
     execute 's'.sep.'^'.dot_ncs.sep.cs.sep.'e'
     return
   endif
@@ -180,7 +180,7 @@ function! ToggleComment_uncomment()
   let cs=out[1]
   let sep=out[2]
 
-  if get(s:comment_in_place,b:current_syntax)
+  if exists("b:current_symbol") && get(s:comment_in_place,b:current_syntax)
     let space_ncs=substitute(cs,"."," ","g")
     execute 's'.sep.'^'.cs.sep.space_ncs.sep.'e'
     return
